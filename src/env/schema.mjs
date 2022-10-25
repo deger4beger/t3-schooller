@@ -7,6 +7,8 @@ import { z } from "zod";
  */
 export const serverSchema = z.object({
   DATABASE_URL: z.string().url(),
+  JWT_REFRESH_SECRET: z.string(),
+  JWT_ACCESS_SECRET: z.string(),
   NODE_ENV: z.enum(["development", "test", "production"]),
 });
 
