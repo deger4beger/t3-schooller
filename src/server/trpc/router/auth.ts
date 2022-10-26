@@ -2,7 +2,7 @@ import Cookies from "cookies";
 import * as bcrypt from "bcryptjs";
 import { z } from "zod";
 import { publicProcedure, router } from "../trpc";
-import { getSignedToken } from "../../../utils/jwt";
+import { getSignedToken, validateToken } from "../../../utils/jwt";
 import { TRPCError } from "@trpc/server";
 
 const userValidator = z.object({
@@ -102,4 +102,26 @@ const authRouter = router({
 				jwt: getSignedToken(userOutput),
 			};
 		}),
+	generateAccess: publicProcedure.query(async ({ input, ctx }) => {
+		const refreshToken = ctx.req.cookies["refresh"];
+		if (!refreshToken) {
+			throw new TRPCError({ code: "UNAUTHORIZED" });
+		}
+		try {
+			const { id } = validateToken(refreshToken, true);
+			const user = await ctx.prisma.user.findUnique({ where: { id } });
+
+			if (!user) {
+				throw new TRPCError({ code: "NOT_FOUND" });
+			}
+
+			const { password, ...userOutput } = user;
+			return {
+				userData: userOutput,
+				jwt: getSignedToken(userOutput),
+			};
+		} catch {
+			throw new TRPCError({ code: "UNAUTHORIZED" });
+		}
+	}),
 });
