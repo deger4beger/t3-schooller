@@ -102,7 +102,7 @@ const authRouter = router({
 				jwt: getSignedToken(userOutput),
 			};
 		}),
-	generateAccess: publicProcedure.query(async ({ input, ctx }) => {
+	generateAccess: publicProcedure.query(async ({ ctx }) => {
 		const refreshToken = ctx.req.cookies["refresh"];
 		if (!refreshToken) {
 			throw new TRPCError({ code: "UNAUTHORIZED" });
@@ -120,6 +120,26 @@ const authRouter = router({
 				userData: userOutput,
 				jwt: getSignedToken(userOutput),
 			};
+		} catch {
+			throw new TRPCError({ code: "UNAUTHORIZED" });
+		}
+	}),
+	signout: publicProcedure.mutation(async ({ ctx }) => {
+		const cookies = new Cookies(ctx.req, ctx.res);
+		const refreshToken = ctx.req.cookies["refresh"];
+
+		if (!refreshToken) {
+			throw new TRPCError({ code: "UNAUTHORIZED" });
+		}
+
+		try {
+			const { id } = validateToken(refreshToken, true);
+			await ctx.prisma.refreshToken.delete({ where: { userId: id } });
+			cookies.set("refresh", "", {
+				httpOnly: true,
+				sameSite: true,
+			});
+			return true;
 		} catch {
 			throw new TRPCError({ code: "UNAUTHORIZED" });
 		}
