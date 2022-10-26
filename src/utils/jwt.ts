@@ -1,12 +1,5 @@
 import * as jwt from "jsonwebtoken";
-
-type User = {
-  id: string;
-  email: string;
-  name: string;
-  role: "STUDENT" | "TEACHER";
-  createdAt: Date;
-};
+import { User } from "../server/trpc/router/auth";
 
 export function getSignedToken(user: User, refresh = false) {
   return jwt.sign(
