@@ -15,7 +15,7 @@ const userValidator = z.object({
 
 export type User = z.infer<typeof userValidator>;
 
-const authRouter = router({
+export const authRouter = router({
 	signup: publicProcedure
 		.input(
 			z.object({
