@@ -15,6 +15,7 @@
     "db:sync": "yarn db:postinstall & yarn db:push"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.3",
     "@prisma/client": "^4.5.0",
     "@tanstack/react-query": "^4.10.0",
     "@trpc/client": "10.0.0-rc.0",
