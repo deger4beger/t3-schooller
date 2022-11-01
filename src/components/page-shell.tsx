@@ -16,9 +16,9 @@ const PageShell = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 	      <nav>
-	      	some nav here when logged in or not
+	      	<h1 className="text-2xl pt-10 pb-4 m-auto w-7/12">Home</h1>
 	      </nav>
-	      <main className="min-w-max min-h-screen bg-zinc-200 text-zinc-900">
+	      <main className="min-w-max min-h-screen">
 	      	<div className="m-auto w-7/12 p-2 pt-6">
 	        	{ children }
 	        </div>
