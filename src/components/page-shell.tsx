@@ -20,9 +20,7 @@ const PageShell = ({
 			return acc
 		}, [] as string[])
 		.includes(router.pathname) && router.pathname !== "/"
-	) {
-		router.push("/signin");
-	}
+	) router.push("/signin");
 
 	return (
 		<>
