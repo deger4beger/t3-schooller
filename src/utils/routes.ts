@@ -6,6 +6,7 @@ export const privateRoutes: [string, string][] = [
 ];
 
 export const publicRoutes: [string, string][] = [
+	["Домой", "/"],
 	["Вход", "/signin"],
 	["Регистрация", "/signup"],
 ];
