@@ -14,13 +14,16 @@ const PageShell = ({
 	const session = useSession();
 	const router = useRouter();
 
-	if (privateRoutes
-		.reduce((acc, route) => {
-			acc.push(route[1])
-			return acc
-		}, [] as string[])
-		.includes(router.pathname) && router.pathname !== "/"
-	) router.push("/signin");
+	if (
+		privateRoutes
+			.reduce((acc, route) => {
+				acc.push(route[1]);
+				return acc;
+			}, [] as string[])
+			.includes(router.pathname) &&
+		router.pathname !== "/"
+	)
+		router.push("/signin");
 
 	return (
 		<>
@@ -32,8 +35,14 @@ const PageShell = ({
 			<nav className="m-auto w-7/12 flex pt-10 pb-4 text-xl">
 				{(!!session ? privateRoutes : publicRoutes).map(([route, link]) => (
 					<Link href={link} key={route}>
-						<h1 className={"mr-4 cursor-pointer hover:underline" +
-							(router.pathname === link ? " underline" : "")}>{route}</h1>
+						<h1
+							className={
+								"mr-4 cursor-pointer hover:underline" +
+								(router.pathname === link ? " underline" : "")
+							}
+						>
+							{route}
+						</h1>
 					</Link>
 				))}
 			</nav>
