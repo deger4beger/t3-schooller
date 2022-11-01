@@ -1,10 +1,11 @@
 import { NextPage } from "next"
+import PageShell from "../components/page-shell"
 
 const Auth: NextPage = () => {
 	return (
-		<div>
+		<PageShell title="Регистрация">
 			signup page
-		</div>
+		</PageShell>
 	)
 }
 
