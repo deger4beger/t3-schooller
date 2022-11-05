@@ -5,7 +5,7 @@ import PageShell from "../components/page-shell"
 const Auth: NextPage = () => {
 	return (
 		<PageShell title="Вход">
-			<Input />
+			<Input type="text" className="rounded" />
 		</PageShell>
 	)
 }
