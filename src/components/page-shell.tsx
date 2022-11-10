@@ -35,14 +35,14 @@ const PageShell = ({
 			<nav className="m-auto w-7/12 flex pt-10 pb-4 text-xl">
 				{(!!session ? privateRoutes : publicRoutes).map(([route, link]) => (
 					<Link href={link} key={route}>
-						<h1
+						<h4
 							className={
-								"mr-2 cursor-pointer hover:bg-zinc-300 p-1 px-2" +
+								"mr-2 cursor-pointer hover:bg-zinc-300 p-1 px-2 rounded" +
 								(router.pathname === link ? " bg-zinc-300" : "")
 							}
 						>
 							{route}
-						</h1>
+						</h4>
 					</Link>
 				))}
 			</nav>
