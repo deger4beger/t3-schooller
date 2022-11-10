@@ -37,8 +37,8 @@ const PageShell = ({
 					<Link href={link} key={route}>
 						<h1
 							className={
-								"mr-4 cursor-pointer hover:underline" +
-								(router.pathname === link ? " underline" : "")
+								"mr-2 cursor-pointer hover:bg-zinc-300 p-1 px-2" +
+								(router.pathname === link ? " bg-zinc-300" : "")
 							}
 						>
 							{route}
@@ -49,8 +49,8 @@ const PageShell = ({
 			<main className="min-w-max min-h-screen">
 				<div className="m-auto w-7/12 pt-6">{children}</div>
 			</main>
-			<footer className="bg-zinc-200 p-3 text-zinc-900 text-sm flex justify-end pr-6">
-				© here goes footer
+			<footer className="bg-zinc-200 p-3 text-zinc-900 text-sm flex justify-center bg-zinc-300 font-semibold text-zinc-600">
+				© schooller, 2022
 			</footer>
 		</>
 	);
