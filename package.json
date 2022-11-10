@@ -31,6 +31,7 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.8",
     "@types/bcryptjs": "^2.4.2",
     "@types/cookies": "^0.7.7",
     "@types/jsonwebtoken": "^8.5.9",
