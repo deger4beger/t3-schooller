@@ -37,8 +37,8 @@ const PageShell = ({
 					<Link href={link} key={route}>
 						<h4
 							className={
-								"mr-2 cursor-pointer p-1 px-2 text-zinc-200 rounded border-b-2 border-gray-700 hover:border-gray-600" +
-								(router.pathname === link ? " border-gray-600" : "")
+								"mr-2 cursor-pointer p-1 px-2 text-zinc-200 border-b-2 border-solid border-gray-700 hover:border-gray-500" +
+								(router.pathname === link ? " border-gray-500" : "")
 							}
 						>
 							{route}
