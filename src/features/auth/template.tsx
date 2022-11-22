@@ -3,7 +3,7 @@ import React from "react"
 const Template = () => {
 	return (
 		<div>
-			Template auth
+			Template auth #2
 		</div>
 	)
 }
