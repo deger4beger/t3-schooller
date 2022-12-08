@@ -6,3 +6,7 @@ type AuthOutput = AppRouterTypes["auth"]["signup"]["output"];
 export const SessionContext = createContext<AuthOutput | null>(null);
 
 export const useSession = () => useContext(SessionContext);
+
+const SessionProvider = () => {
+	// TODO: write here state context
+}
