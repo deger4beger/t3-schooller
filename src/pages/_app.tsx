@@ -2,12 +2,12 @@
 import "../styles/globals.css";
 import type { AppType } from "next/app";
 import { trpc } from "../utils/trpc";
-import { SessionContext } from "../hooks/session-context";
+import { SessionProvider } from "../hooks/session-context";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return <SessionContext.Provider value={ null }>
+  return <SessionProvider>
     <Component {...pageProps} />
-  </SessionContext.Provider>;
+  </SessionProvider>;
 };
 
 export default trpc.withTRPC(MyApp);
