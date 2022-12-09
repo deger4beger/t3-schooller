@@ -8,13 +8,17 @@ const SessionContext = createContext<{
 	setUser: (user: AuthOutput | null) => void;
 } | null>(null);
 
-export const SessionProvider = ({ children }: { children: React.ReactNode }) => {
+export const SessionProvider = ({
+	children,
+}: {
+	children: React.ReactNode;
+}) => {
 	const [user, setUser] = useState<AuthOutput | null>(null);
 	return (
 		<SessionContext.Provider value={{ user, setUser }}>
-			{ children }
+			{children}
 		</SessionContext.Provider>
-	)
-}
+	);
+};
 
 export const useSession = () => useContext(SessionContext);
