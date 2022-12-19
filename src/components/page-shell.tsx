@@ -50,7 +50,7 @@ const PageShell = ({
 				<div className="m-auto w-7/12 pt-6 px-4">{children}</div>
 			</main>
 			<footer className="bg-zinc-900 p-3 text-zinc-100 text-sm flex justify-center bg-zinc-300 text-zinc-600">
-				© schooller, 2022
+				2022 © schooller
 			</footer>
 		</>
 	);
