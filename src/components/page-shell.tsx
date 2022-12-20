@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useSession } from "../hooks/session-context";
 import { privateRoutes, publicRoutes } from "../utils/routes";
 
+// TODO: условный роутинг rethink
 const PageShell = ({
 	children,
 	title,
