@@ -3,6 +3,7 @@ import { AppRouterTypes } from "../utils/trpc";
 
 type AuthOutput = AppRouterTypes["auth"]["signup"]["output"];
 
+// TODO: mb switch to jotai / zustand
 const SessionContext = createContext<{
 	user: AuthOutput | null;
 	setUser: (user: AuthOutput | null) => void;
