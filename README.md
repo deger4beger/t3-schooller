@@ -25,3 +25,10 @@ Also checkout these awesome tutorials on `create-t3-app`.
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://beta.create.t3.gg/en/deployment/vercel) and [Docker](https://beta.create.t3.gg/en/deployment/docker) for more information.
+
+## How do I run this?
+
+- yarn dev
+- yarn build
+
+- search for other scripts in package.json
